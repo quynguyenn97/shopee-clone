@@ -72,60 +72,24 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
         }
 
         return (
-          <Link
-            to={{
-              pathname: path.home,
-              search: createSearchParams({
-                ...queryConfig,
-                page: pageNumber.toString()
-              }).toString()
-            }}
+          <button
             key={index}
             className={classNames('mx-2 cursor-pointer rounded border bg-white px-3 py-2 shadow-sm', {
               'border-cyan-500': pageNumber === page,
               'border-transparent': pageNumber !== page
             })}
+            onClick={() => setPage(pageNumber)}
           >
             {pageNumber}
-          </Link>
+          </button>
         )
       })
   }
   return (
     <div className='mt-6 flex flex-wrap justify-center'>
-      {page === 1 ? (
-        <span className='mx-2 cursor-not-allowed rounded border bg-white/60 px-3 py-2  shadow-sm'>Prev</span>
-      ) : (
-        <Link
-          to={{
-            pathname: path.home,
-            search: createSearchParams({
-              ...queryConfig,
-              page: (page - 1).toString()
-            }).toString()
-          }}
-          className='mx-2 cursor-pointer rounded border bg-white px-3 py-2  shadow-sm'
-        >
-          Prev
-        </Link>
-      )}
+      <button className='mx-2 cursor-pointer rounded border bg-white px-3 py-2  shadow-sm'>Prev</button>
       {renderPagination()}
-      {page === pageSize ? (
-        <span className='mx-2 cursor-not-allowed rounded border bg-white/60 px-3 py-2  shadow-sm'>Next</span>
-      ) : (
-        <Link
-          to={{
-            pathname: path.home,
-            search: createSearchParams({
-              ...queryConfig,
-              page: (page + 1).toString()
-            }).toString()
-          }}
-          className='mx-2 cursor-pointer rounded border bg-white px-3 py-2  shadow-sm'
-        >
-          Next
-        </Link>
-      )}
+      <button className='mx-2 cursor-pointer rounded border bg-white px-3 py-2  shadow-sm'>Next</button>
     </div>
   )
 }

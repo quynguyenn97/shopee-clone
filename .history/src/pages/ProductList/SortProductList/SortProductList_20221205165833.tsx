@@ -87,93 +87,41 @@ export default function SortProductList({ queryConfig, pageSize }: Props) {
             <option value='' disabled className='bg-white text-black'>
               Giá
             </option>
-            <option value={orderConstant.asc} className='bg-white text-black'>
-              Giá: Thấp đến cao
-            </option>
-            <option value={orderConstant.desc} className='bg-white text-black'>
-              Giá: Cao đến thấp
-            </option>
+            <option value='price:asc'>Giá: Thấp đến cao</option>
+            <option value='price:desc'>Giá: Cao đến thấp</option>
           </select>
         </div>
 
         <div className='flex items-center'>
           <div>
-            <span className='text-orange'>{page}</span>
-            <span>/{pageSize}</span>
+            <span className='text-orange'>1</span>
+            <span>/2</span>
           </div>
-          <div className='ml-2 flex'>
-            {page === 1 ? (
-              <span className='flex h-8 w-9 cursor-not-allowed items-center justify-center rounded-tl-sm rounded-bl-sm bg-white/60  shadow hover:bg-slate-100'>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth={1.5}
-                  stroke='currentColor'
-                  className='h-3 w-3'
-                >
-                  <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
-                </svg>
-              </span>
-            ) : (
-              <Link
-                to={{
-                  pathname: path.home,
-                  search: createSearchParams({
-                    ...queryConfig,
-                    page: (page - 1).toString()
-                  }).toString()
-                }}
-                className='flex h-8 w-9  items-center justify-center rounded-tl-sm rounded-bl-sm bg-white  shadow hover:bg-slate-100'
+          <div className='ml-2'>
+            <button className='h-8 cursor-not-allowed rounded-tl-sm rounded-bl-sm bg-white/60 px-3 shadow hover:bg-slate-100'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth={1.5}
+                stroke='currentColor'
+                className='h-3 w-3'
               >
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth={1.5}
-                  stroke='currentColor'
-                  className='h-3 w-3'
-                >
-                  <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
-                </svg>
-              </Link>
-            )}
-            {page === pageSize ? (
-              <span className='flex h-8 w-9 cursor-not-allowed items-center justify-center rounded-tl-sm rounded-bl-sm bg-white/60  shadow hover:bg-slate-100'>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth={1.5}
-                  stroke='currentColor'
-                  className='h-3 w-3'
-                >
-                  <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
-                </svg>
-              </span>
-            ) : (
-              <Link
-                to={{
-                  pathname: path.home,
-                  search: createSearchParams({
-                    ...queryConfig,
-                    page: (page + 1).toString()
-                  }).toString()
-                }}
-                className='flex h-8 w-9  items-center justify-center rounded-tl-sm rounded-bl-sm bg-white  shadow hover:bg-slate-100'
+                <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
+              </svg>
+            </button>
+            <button className='h-8 rounded-tr-sm rounded-br-sm bg-white px-3 shadow hover:bg-slate-100 '>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth={1.5}
+                stroke='currentColor'
+                className='h-3 w-3'
               >
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth={1.5}
-                  stroke='currentColor'
-                  className='h-3 w-3'
-                >
-                  <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
-                </svg>
-              </Link>
-            )}
+                <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

@@ -48,15 +48,14 @@ export default function ProductList() {
     keepPreviousData: true
   })
 
-  console.log(productsData)
-  console.log(categoriesData)
+  console.log(data)
   return (
     <div className='bg-gray-200 py-6'>
       <div className='container'>
         {productsData && (
           <div className='grid grid-cols-12 gap-6'>
             <div className='col-span-3'>
-              <AsideFilter queryConfig={queryConfig} categories={categoriesData?.data.data || []} />
+              <AsideFilter />
             </div>
             <div className='col-span-9'>
               <SortProductList queryConfig={queryConfig} pageSize={productsData.data.data.pagination.page_size} />

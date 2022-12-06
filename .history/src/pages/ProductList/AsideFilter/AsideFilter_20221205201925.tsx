@@ -9,7 +9,7 @@ interface Props {
   queryConfig: QueryConfig
   categories: Category[]
 }
-export default function AsideFilter({ queryConfig, categories }: Props) {
+export default function AsideFilter() {
   return (
     <div className='py-4'>
       <Link to={path.home} className='flex items-center font-bold'>
